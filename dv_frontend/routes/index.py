@@ -26,22 +26,29 @@ def get_nav():
     )
 
     bar_chart = st.Page(
-        "pages/visualization/bar_chart.py",
-        title="Bar Charts",
-        icon=":material/bar_chart:",
+    "pages/visualization/bar_chart.py",
+    title="Bar Charts",
+    icon=":material/bar_chart:",
     )
-    
+
     distribution = st.Page(
-    "pages/visualization/distribution.py",
-    title="Data Distribution",
-    icon=":material/insights:",
+        "pages/visualization/distribution.py",
+        title="Data Distribution",
+        icon=":material/stacked_bar_chart:",  # looks like a histogram/distribution
     )
-    
+
     line_chart = st.Page(
-    "pages/visualization/line_chart.py",
-    title="Line Charts",
-    icon=":material/insights:",
+        "pages/visualization/line_chart.py",
+        title="Line Charts",
+        icon=":material/show_chart:",  # clean upward-trending line icon
     )
+
+    scatter_plot = st.Page(
+        "pages/visualization/scatter_plot.py",
+        title="Scatter Plots",
+        icon=":material/scatter_plot:",  # perfect for scatter plot points
+    )
+
     
     # ------------------------- Conditional Nav ---------------------------
     has_data = st.session_state["uploaded_df"] is not None
@@ -51,7 +58,7 @@ def get_nav():
         sections = {
             "Dashboard": [dashboard_page],
             "Data": [upload_dataset, view_dataset],
-            "Visualization": [distribution,bar_chart,line_chart],
+            "Visualization": [distribution,bar_chart,line_chart,scatter_plot],
         }
     else:
         # Only allow Dashboard + Upload until data is available
