@@ -3,55 +3,55 @@
 ![Streamlit](https://img.shields.io/badge/Framework-Streamlit-FF4B4B?logo=streamlit&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.12+-blue?logo=python)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Status](https://img.shields.io/badge/Status-Active-success)
+![Status](https://img.shields.io/badge/Status-Deployed-success)
 
-> 🧠 **A dynamic Streamlit web app for uploading, analyzing, visualizing, and exporting datasets** — featuring custom dashboards, interactive visualizations, and PDF report generation.
-
----
-
-## 🖼️ Preview
-
-<p align="center">
-  <img src="https://github.com/your-username/data-visualization-streamlit/assets/preview-dashboard.png" width="80%" alt="Dashboard Preview">
-</p>
+> 🧠 **A dynamic Streamlit web app for uploading, analyzing, visualizing, and exporting datasets** — featuring custom dashboards, interactive visualizations, and professional PDF report generation.
 
 ---
 
-## 🚀 Overview
+## 🌐 Live Demo
 
-This project is a **multi-page, modular Streamlit application** that lets users:
+🎯 **Try it here → [data-visulization.streamlit.app](https://data-visulization.streamlit.app/)**  
 
-- Upload **CSV** or **Excel** datasets.  
-- Explore data interactively with summaries and EDA insights.  
-- Visualize data through customizable **Bar, Line, Distribution, and Scatter plots**.  
-- Generate **beautiful PDF reports** with selected analytics sections.  
-- Export charts as **PNG** files directly from the app.  
-
-💡 It’s a complete mini-framework for **data analysis and visualization**, built from scratch — demonstrating strong **Python, data engineering, and front-end integration** skills.
+*(No setup needed — runs directly in your browser)*
 
 ---
 
-## 🧱 Project Architecture
+## 🧭 Overview
+
+This project is a **multi-page, modular Streamlit application** that allows you to:
+
+- 📤 Upload CSV or Excel datasets (up to 150 MB).  
+- 🧮 Perform automatic EDA (Exploratory Data Analysis).  
+- 📈 Create rich, interactive **Bar, Distribution, Line, and Scatter** visualizations.  
+- 📄 Generate **custom PDF reports** with the sections you choose.  
+- 🖼️ Export visuals as **PNG** directly from the interface.  
+
+💡 Designed to demonstrate end-to-end **data engineering, analytics, and visualization** workflows — fully coded from scratch using Streamlit and Python.
+
+---
+
+## 🧱 Project Structure
 
 ```bash
 📦 dv_frontend/
 │
-├── app.py                      # Main entry point for Streamlit
+├── app.py                      # Main Streamlit app entry point
 │
 ├── utils/
-│   ├── image_export.py         # Handles PNG chart export (Altair + Pillow)
-│   └── visual_components.py    # Reusable Streamlit UI components
+│   ├── image_export.py         # Handles PNG export for Altair charts
+│   └── visual_components.py    # Reusable Streamlit components for exports/UI
 │
 ├── pages/
-│   ├── dashboard.py            # Placeholder for overall summary view
+│   ├── dashboard.py            # (Reserved for summary dashboard)
 │   ├── data/
-│   │   ├── upload_dataset.py   # Upload & store dataset in session
-│   │   └── view_dataset.py     # Interactive dataset profiling + PDF report
+│   │   ├── upload_dataset.py   # Upload, parse, and cache datasets
+│   │   └── view_dataset.py     # Profile datasets and export PDF reports
 │   └── visualization/
-│       ├── bar_chart.py        # Dynamic bar chart builder
-│       ├── distribution.py     # Histogram / categorical distribution
-│       ├── line_chart.py       # Time-series and trend plots
-│       └── scatter_plot.py     # Correlation and relationship plots
+│       ├── bar_chart.py        # Multi-config bar charts
+│       ├── distribution.py     # Histograms / categorical distributions
+│       ├── line_chart.py       # Trend & time-series plots
+│       └── scatter_plot.py     # Numeric correlation plots
 │
 ├── requirements.txt
 └── README.md
@@ -59,12 +59,12 @@ This project is a **multi-page, modular Streamlit application** that lets users:
 
 ---
 
-## ⚙️ How to Run Locally
+## ⚙️ Run Locally
 
-### 🪜 1. Clone this repository
+### 🪜 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/data-visualization-streamlit.git
+git clone https://github.com/carzy-zala/data-visualization-streamlit.git
 cd data-visualization-streamlit
 ```
 
@@ -72,9 +72,9 @@ cd data-visualization-streamlit
 
 ```bash
 python -m venv .venv
-# Activate it
 .venv\Scripts\activate      # Windows
-source .venv/bin/activate   # Mac / Linux
+# or
+source .venv/bin/activate   # macOS/Linux
 ```
 
 ### 📦 3. Install dependencies
@@ -83,17 +83,17 @@ source .venv/bin/activate   # Mac / Linux
 pip install -r requirements.txt
 ```
 
-### 🏃 4. Run the Streamlit app
+### 🏃 4. Launch the app
 
 ```bash
 streamlit run app.py
 ```
 
-> Then open [http://localhost:8501](http://localhost:8501) in your browser.
+Then open 👉 [http://localhost:8501](http://localhost:8501)
 
 ---
 
-## 🧰 Requirements
+## 📦 Dependencies
 
 ```txt
 streamlit
@@ -106,8 +106,7 @@ reportlab
 openpyxl
 ```
 
-*(Optional)*
-If you plan to extend visualizations:
+*(Optional)* for extended analytics:
 
 ```txt
 matplotlib
@@ -121,97 +120,98 @@ ydata-profiling
 
 ### 🗂️ Upload Dataset
 
-* Supports **CSV** and **Excel** formats.
-* Smart delimiter detection and datetime inference.
-* Displays upload progress with **live status updates**.
-* Automatically stores data in session state for use across pages.
+* Accepts **CSV/XLSX** up to 150 MB.
+* Auto-detects delimiters and datetime columns.
+* Displays upload progress with **real-time feedback**.
+* Automatically stores dataset in Streamlit session state.
 
 ---
 
-### 👁️ View Dataset
+### 📊 View Dataset
 
-* Quick stats: rows, columns, memory usage, duplicate count.
-* Column grouping by data type (numeric, categorical, datetime, boolean).
-* Missing value matrix and duplicates preview.
-* Descriptive statistics (`describe`) for numeric & categorical columns.
-* Correlation matrix for numeric-only columns.
-* **Export to PDF report** with custom section selection (Quick Stats, Missing Values, Correlations, etc.).
+Explore dataset characteristics instantly:
 
-🖨️ PDF reports include:
+* ✅ Summary: rows, columns, memory, duplicates
+* 📦 Dtypes grouped by category (numeric, categorical, datetime, boolean)
+* 🧮 Descriptive statistics & correlations
+* 🚫 Missing and duplicate value analysis
+* 📄 **PDF report generation** with customizable sections
+
+💾 PDF exports include:
 
 * Rounded numeric values (2 decimals)
-* Clean layout and typography
-* Optional sections (user-selectable)
-* One-click “Generate → Download” horizontal buttons
+* Clean tables (max 12 columns per table)
+* Section selection
+* Horizontal **Generate → Download** flow
 
 ---
 
-### 📊 Visualization Pages
+### 🎨 Visualization Hub
 
-#### 📈 Bar Charts
+#### 📊 Bar Chart
 
-* Choose categorical and numeric columns.
-* Aggregations: `sum`, `mean`, `count`, `nunique`, etc.
-* Dynamic color palette, label orientation, and sorting.
-* Export charts as **PNG** with one click.
+* Choose X/Y columns and aggregation (`sum`, `mean`, `count`, `nunique`, etc.)
+* Customizable color, orientation, sorting, and labels
+* Add up to 10 charts dynamically
+* Export each as **PNG**
 
-#### 📉 Distribution
+#### 📈 Distribution
 
-* Automatically decides **bar** (categorical) or **histogram** (numeric).
-* Configurable bins, normalization, and density overlays.
-* Clean, interactive Altair visuals with color customization.
+* Detects numeric vs. categorical automatically
+* Displays **Histogram** or **Bar Chart** accordingly
+* Density overlays, normalization, and color control
 
-#### 📆 Line Charts
+#### 📆 Line Chart
 
-* Plot trends or time-series metrics with full control over axes, colors, and smoothing.
+* Ideal for time-based or continuous data trends
+* Interactive zoom and label control
 
-#### ⚪ Scatter Plots
+#### ⚪ Scatter Plot
 
-* Compare any two numeric columns, with optional color encoding.
-* Ideal for correlation, clustering, or outlier analysis.
+* Explore relationships between numeric columns
+* Optional color encoding, regression overlay
 
 ---
 
 ## 📄 PDF Report Example
 
 <p align="center">
-  <img src="https://github.com/your-username/data-visualization-streamlit/assets/preview-report.png" width="80%" alt="PDF Report Preview">
+  <img src="https://github.com/carzy-zala/data-visualization-streamlit/assets/preview-report.png" width="80%" alt="PDF Report Preview">
 </p>
 
 ---
 
 ## 🧠 Skills Demonstrated
 
-| Category                 | Technologies / Concepts                                    |
-| ------------------------ | ---------------------------------------------------------- |
-| **Frontend**             | Streamlit, Altair, responsive layout, interactive charts   |
-| **Backend / Data Logic** | pandas, numpy, I/O handling, data profiling                |
-| **Visualization Export** | Altair + Pillow PNG export                                 |
-| **Report Generation**    | ReportLab dynamic PDF creation                             |
-| **Software Design**      | Modular code, config-driven pages, reusable components     |
-| **Data Engineering**     | Schema inference, datetime parsing, memory optimization    |
-| **UI/UX**                | Session management, feedback messages, clean modern design |
+| Skill Area           | Tools & Concepts                                      |
+| -------------------- | ----------------------------------------------------- |
+| **Data Engineering** | Schema inference, type detection, memory optimization |
+| **Data Analysis**    | pandas, numpy, descriptive statistics, correlation    |
+| **Visualization**    | Altair, Streamlit charts, dynamic chart configuration |
+| **Automation**       | Custom PDF reports (ReportLab), PNG chart exports     |
+| **Software Design**  | Modular architecture, reusable components             |
+| **Frontend Logic**   | Streamlit navigation, state management, UI feedback   |
 
 ---
 
 ## 🧩 Example Workflow
 
-1️⃣ Upload your dataset (`.csv` or `.xlsx`).
-2️⃣ Explore summary metrics under **View Dataset**.
-3️⃣ Create multiple **visualizations** under the “Visualization” tab.
-4️⃣ Export visuals as **PNG** or a **comprehensive PDF report**.
+1️⃣ **Upload** your dataset (`.csv` / `.xlsx`)
+2️⃣ **Explore** summary metrics in "View Dataset"
+3️⃣ **Visualize** data with charts (Bar, Distribution, Line, Scatter)
+4️⃣ **Export** visuals as PNG or full report as PDF
 
-That’s it — no code, just insights 🔥.
+That’s it — zero code, maximum insights ⚡
 
 ---
 
 ## 🚀 Future Enhancements
 
-* 📊 Correlation Heatmap & Pairplot view
-* 🧮 Outlier detection & anomaly summary
-* 🪄 Smart EDA recommendations
-* 🌐 Direct database (SQL/Snowflake/BigQuery) integration
-* 💾 Option to save user reports and dashboards persistently
+* 📊 Correlation heatmaps & pair plots
+* 🧮 Outlier detection and auto-profiling
+* 🪄 AI-powered EDA insights (auto-summary)
+* 🌐 Database integration (SQL / BigQuery / Snowflake)
+* 🧱 Persistent dashboard saving & sharing
 
 ---
 
@@ -220,35 +220,30 @@ That’s it — no code, just insights 🔥.
 **Jayrajsinh Zala (Jay)**
 *Data Engineer | Data Analyst | Streamlit Developer*
 
-🌐 [LinkedIn](https://linkedin.com/in/jayrajsinhzala)
+🌐 [Live App](https://data-visulization.streamlit.app/)
+🔗 [LinkedIn](https://linkedin.com/in/jayrajsinhzala)
 📧 [jayrajsinh@example.com](mailto:jayrajsinh@example.com)
 📍 United Kingdom
 
-> ⚡ *This project represents my ability to design, build, and deliver modular, data-driven Streamlit applications that combine engineering, analytics, and visualization in one seamless workflow.*
+> ⚡ *This project demonstrates my ability to design and implement complete data workflows — from ingestion and analysis to visualization and reporting — using Python and Streamlit.*
 
 ---
 
 ## 🏁 Summary
 
-This Streamlit application isn’t just a visualization tool — it’s a **data engineering showcase**:
+This isn’t just a visualization tool — it’s a **data engineering showcase**:
 
-* Modular architecture
-* Interactive analytics
-* Config-driven reporting
-* Clean, modern user experience
+* Modular Streamlit architecture
+* Dynamic visual generation
+* Automated EDA reporting
+* Clean, deployable UI
 
-🎯 **Purpose:** Demonstrate the full stack of practical data skills — from ingestion and EDA to visualization and reporting — in a single, interactive Python app.
+🎯 **Purpose:** Demonstrate end-to-end practical data skills through an interactive web-based platform.
+⭐ **Deployed Live:** [https://data-visulization.streamlit.app/](https://data-visulization.streamlit.app/)
 
 ---
 
-<p align="center">⭐ If you find this project useful, please consider starring it on GitHub!</p>
+<p align="center">⭐ If you find this project useful, please consider giving it a star on GitHub!</p>
 ```
 
 ---
-
-### ✅ Why This Version Works
-
-* **Visually professional**: uses badges, centered preview images, and emojis.
-* **HR-friendly**: reads like a portfolio summary (shows your strengths explicitly).
-* **Technically impressive**: highlights modular architecture, EDA logic, and visual export.
-* **SEO-friendly for GitHub**: includes keywords (“Streamlit”, “EDA”, “PDF report”, “Data Visualization”).
