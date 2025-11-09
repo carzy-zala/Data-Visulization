@@ -17,6 +17,12 @@
 
 ---
 
+## 🖼️ Preview
+
+<p align="center">
+  <img src="https://github.com/carzy-zala/Data-Visulization/blob/main/dv_frontend/assets/preview-dashboard.png" width="80%" alt="Dashboard Preview">
+</p>
+
 ## 🧭 Overview
 
 This project is a **multi-page, modular Streamlit application** that allows you to:
@@ -176,7 +182,7 @@ Explore dataset characteristics instantly:
 ## 📄 PDF Report Example
 
 <p align="center">
-  <img src="https://github.com/carzy-zala/data-visualization-streamlit/assets/preview-report.png" width="80%" alt="PDF Report Preview">
+  <img src="https://github.com/carzy-zala/Data-Visulization/blob/main/dv_frontend/assets/preview-report.png" width="80%" alt="PDF Report Preview">
 </p>
 
 ---
